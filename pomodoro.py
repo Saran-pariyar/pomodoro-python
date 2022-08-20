@@ -1,4 +1,5 @@
 from time import sleep
+from unittest import result
 from pyautogui import confirm, alert
 
 
@@ -7,9 +8,20 @@ def pomodoro():
     total_number_of_time = 0
     rest_taken = 0
     added_time = 0
+    result = (
+        "Added time is ",
+        added_time,
+        "min and rest taken is ",
+        rest_taken,
+        "min",
+    )
+    total = "Total number of minutes = ", total_number_of_time + added_time
 
     while True:
         a = confirm(text="Start pomodoro", title="", buttons=["OK", "No"])
+        if a == "No":
+            alert(text=result, title=total, button="OK")
+
         print(a)
         if a == "OK":
             # sleeps for 30 minutes
@@ -35,15 +47,7 @@ def pomodoro():
 
             elif getData == "End":
                 print(added_time, rest_taken)
-                result = (
-                    "Added time is ",
-                    added_time,
-                    "min and rest taken is ",
-                    rest_taken,
-                    "min",
-                )
 
-                total = "Total number of minutes = ", total_number_of_time + added_time
                 alert(text=result, title=total, button="OK")
                 break
             i = i + 1
