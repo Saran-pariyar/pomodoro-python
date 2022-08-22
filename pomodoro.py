@@ -15,20 +15,18 @@ def pomodoro():
         rest_taken,
         "min",
     )
-    total = "Total number of minutes = ", total_number_of_time + added_time
+    total = total_number_of_time + added_time
+    print(total)
 
     while True:
         a = confirm(text="Start pomodoro", title="", buttons=["OK", "No"])
-        if a == "No":
-            alert(text=result, title=total, button="OK")
 
-        print(a)
         if a == "OK":
             print("Started pomodoro")
             # sleeps for 30 minutes
             sleep(1800)
             # when 30 minutes is over, we will add 30 as value on total_number_of_time
-            total_number_of_time = total_number_of_time + 30
+            total_number_of_time = 30
             # takes input from the user
             getData = confirm(
                 text="Your 30 minute is over",
@@ -55,6 +53,10 @@ def pomodoro():
         else:
             alert(text="Understandable, have a nice day!", title="", button="OK")
             break
+        if a == "No":
+            alert(text=result, title=total_number_of_time, button="OK")
+
+        print(result, total_number_of_time)
 
 
 pomodoro()
