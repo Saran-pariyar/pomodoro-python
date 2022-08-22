@@ -24,6 +24,7 @@ def pomodoro():
 
         print(a)
         if a == "OK":
+            print("Started pomodoro")
             # sleeps for 30 minutes
             sleep(1800)
             # when 30 minutes is over, we will add 30 as value on total_number_of_time
